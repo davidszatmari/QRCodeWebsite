@@ -1,7 +1,7 @@
 document
   .getElementById("generate")
   .addEventListener("submit", function (event) {
-    event.preventDefault(); // Prevent form from refreshing the page
+    event.preventDefault();
 
     const inputText = document.getElementById("textInput").value;
 

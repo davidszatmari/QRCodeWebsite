@@ -36,3 +36,12 @@ body {
 .side-panel li:hover {
   color: #61dafb;
 }
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #61dafb;
+}

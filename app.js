@@ -2,6 +2,11 @@ const express = require("express");
 const QRCode = require("qrcode");
 const fs = require("fs");
 const app = express();
+const multer = require("multer");
+const jsQR = require("jsqr");
+const sharp = require("sharp");
+
+const upload = multer({ dest: "uploads/" });
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
@@ -12,6 +17,10 @@ app.engine("html", (_, options, callback) => {
 
 app.get("/", (req, res) => {
   res.render("index.html", { file: "views/index.html" });
+});
+
+app.get("/decode", (req, res) => {
+  res.render("decode.html", { file: "views/decode.html" });
 });
 
 app.use(express.json());
@@ -30,6 +39,35 @@ app.post("/generate", async (req, res) => {
     res.status(200).json({ qrCode: qrImageUrl });
   } catch (err) {
     res.status(500).json({ error: "Failed to generate QR code" });
+  }
+});
+
+app.post("/decodeqr", upload.single("qrImage"), async (req, res) => {
+  if (!req.file) {
+    return res.status(400).json({ error: "Image file is required" });
+  }
+
+  try {
+    const imageBuffer = fs.readFileSync(req.file.path);
+
+    // Convert image to raw pixel data
+    const { data, info } = await sharp(imageBuffer)
+      .ensureAlpha()
+      .raw()
+      .toBuffer({ resolveWithObject: true });
+
+    const qrCode = jsQR(data, info.width, info.height);
+
+    if (!qrCode) {
+      return res.status(400).json({ error: "Unable to decode QR code" });
+    }
+
+    res.json({ decodedText: qrCode.data });
+  } catch (err) {
+    console.error("Error decoding QR:", err);
+    res.status(500).json({ error: "Failed to process image" });
+  } finally {
+    fs.unlink(req.file.path, () => {}); // optional cleanup
   }
 });
 
