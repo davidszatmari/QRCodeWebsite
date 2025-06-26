@@ -10,20 +10,29 @@
     <div class="side-panel">
       <h2>Menu</h2>
       <ul>
-        <li>Create</li>
+        <li>Generate</li>
         <li>Decode</li>
         <li>Settings</li>
       </ul>
     </div>
 
     <div class="main-content">
-      <h1>Create</h1>
+      <h1>Generate QR Code</h1>
       <p>
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci ut
         sint, in accusantium distinctio, provident quas magni earum incidunt
         pariatur voluptas? Libero rerum nostrum itaque inventore unde, nobis
         architecto ut.
       </p>
+      <form id="generate">
+        <input type="text" id="textInput" />
+        <button type="submit">Generate</button>
+      </form>
+      <p id="message" style="margin-top: 20px"></p>
+      <img src="" id="result" />
+      <p>Advanced Settings</p>
     </div>
+
+    <script src="script.js"></script>
   </body>
 </html>
