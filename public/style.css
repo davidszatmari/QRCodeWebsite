@@ -1,0 +1,38 @@
+body {
+  margin: 0;
+  background-color: #121212;
+  color: white;
+  font-family: Arial, sans-serif;
+  display: flex;
+  height: 100vh;
+}
+
+.side-panel {
+  width: 250px;
+  background-color: #1e1e1e;
+  padding: 20px;
+  box-sizing: border-box;
+  border-right: 1px solid #333;
+}
+
+/* Main content area */
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+}
+
+/* Example panel items */
+.side-panel ul {
+  list-style: none;
+  padding: 0;
+}
+
+.side-panel li {
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.side-panel li:hover {
+  color: #61dafb;
+}
