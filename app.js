@@ -25,7 +25,7 @@ app.get("/decode", (req, res) => {
 
 app.use(express.json());
 
-// Endpoint to generate QR Code
+//Generate QR Code
 app.post("/generate", async (req, res) => {
   const { text } = req.body;
 
@@ -42,6 +42,7 @@ app.post("/generate", async (req, res) => {
   }
 });
 
+// Decode QR Code
 app.post("/decodeqr", upload.single("qrImage"), async (req, res) => {
   if (!req.file) {
     return res.status(400).json({ error: "Image file is required" });
