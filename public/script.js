@@ -5,13 +5,18 @@ document
 
     const inputText = document.getElementById("textInput").value;
     const slider = document.getElementById("slider").value;
+    const level = document.getElementById("correc_level").value;
 
     fetch("http://localhost:3000/generate", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ text: inputText, input_scale: slider }),
+      body: JSON.stringify({
+        text: inputText,
+        input_scale: slider,
+        input_errorCorrection: level,
+      }),
     })
       .then((response) => response.json())
       .then((data) => {
@@ -25,17 +30,18 @@ document
       });
   });
 
-// const slider = document.getElementById("slider");
-console.log(slider.value);
-// slider.addEventListener("input", function () {
-//   console.log("Slider value: " + slider.value);
-// });
-
 const sliderValue = document.getElementById("sliderValue");
 sliderValue.textContent = slider.value;
 slider.addEventListener("input", function () {
   sliderValue.textContent = slider.value;
 });
 
-const selectElement = document.getElementById("correc_level");
-console.log("Initial selected value:", selectElement.value);
+//console logs:
+// const slider = document.getElementById("slider");
+console.log(slider.value);
+// slider.addEventListener("input", function () {
+//   console.log("Slider value: " + slider.value);
+// });
+
+const level = document.getElementById("correc_level");
+console.log(level.value);
