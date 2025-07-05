@@ -30,3 +30,12 @@ console.log(slider.value);
 // slider.addEventListener("input", function () {
 //   console.log("Slider value: " + slider.value);
 // });
+
+const sliderValue = document.getElementById("sliderValue");
+sliderValue.textContent = slider.value;
+slider.addEventListener("input", function () {
+  sliderValue.textContent = slider.value;
+});
+
+const selectElement = document.getElementById("correc_level");
+console.log("Initial selected value:", selectElement.value);

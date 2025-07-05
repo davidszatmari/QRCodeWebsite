@@ -33,15 +33,27 @@
       <p id="message" style="margin-top: 20px"></p>
       <img src="" id="result" />
       <p>Advanced Settings</p>
-      <div class="slidecontainer">
-        <input
-          type="range"
-          min="1"
-          max="100"
-          value="50"
-          class="slider"
-          id="slider"
-        />
+      <div class="advanced">
+        <div class="slidecontainer">
+          <input
+            type="range"
+            min="1"
+            max="100"
+            value="10"
+            class="slider"
+            id="slider"
+          />
+          <div id="sliderValue" class="value-display">10</div>
+        </div>
+        <div>
+          <label for="Level">Error correction level:</label>
+          <select name="correc_level" id="correc_level">
+            <option value="L">L (Low)</option>
+            <option value="M" selected>M (Medium)</option>
+            <option value="Q">Q (Quartile)</option>
+            <option value="H">H (High)</option>
+          </select>
+        </div>
       </div>
     </div>
 

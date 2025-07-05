@@ -5,6 +5,7 @@ const app = express();
 const multer = require("multer");
 const jsQR = require("jsqr");
 const sharp = require("sharp");
+const { error } = require("console");
 
 const upload = multer({ dest: "uploads/" });
 
@@ -29,6 +30,7 @@ app.use(express.json());
 app.post("/generate", async (req, res) => {
   const { text } = req.body;
   const { input_scale } = req.body;
+  const { input_errorCorrection } = req.body;
 
   if (!text) {
     return res.status(400).json({ error: "Text is required" });
@@ -39,8 +41,9 @@ app.post("/generate", async (req, res) => {
     const qrImageUrl = await QRCode.toDataURL(text, {
       margin: 1,
       scale: input_scale,
+      errorCorrectionLevel: input_errorCorrection,
     });
-    console.log(input_scale);
+    console.log(input_scale, input_errorCorrection);
     res.status(200).json({ qrCode: qrImageUrl });
   } catch (err) {
     res.status(500).json({ error: "Failed to generate QR code" });

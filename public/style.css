@@ -161,3 +161,26 @@ input:focus ~ .input-border {
   background-color: #888; /* Slightly lighter gray on hover */
   color: #fff; /* White text on hover */
 }
+
+.slidecontainer {
+  position: relative;
+  width: 240px;
+}
+
+.slider {
+  width: 100%;
+}
+
+.value-display {
+  position: absolute;
+  top: 30px; /* Adjust this based on how far you want the value from the slider */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.advanced {
+  display: flex;
+  justify-content: space-around;
+}
