@@ -4,13 +4,14 @@ document
     event.preventDefault();
 
     const inputText = document.getElementById("textInput").value;
+    const slider = document.getElementById("slider").value;
 
     fetch("http://localhost:3000/generate", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ text: inputText }),
+      body: JSON.stringify({ text: inputText, input_scale: slider }),
     })
       .then((response) => response.json())
       .then((data) => {
@@ -23,3 +24,9 @@ document
           "Error: " + error.message;
       });
   });
+
+// const slider = document.getElementById("slider");
+console.log(slider.value);
+// slider.addEventListener("input", function () {
+//   console.log("Slider value: " + slider.value);
+// });

@@ -28,6 +28,7 @@ app.use(express.json());
 //Generate QR Code
 app.post("/generate", async (req, res) => {
   const { text } = req.body;
+  const { input_scale } = req.body;
 
   if (!text) {
     return res.status(400).json({ error: "Text is required" });
@@ -35,7 +36,11 @@ app.post("/generate", async (req, res) => {
 
   try {
     // Generate QR code as Data URL
-    const qrImageUrl = await QRCode.toDataURL(text, { margin: 1, scale: 10 });
+    const qrImageUrl = await QRCode.toDataURL(text, {
+      margin: 1,
+      scale: input_scale,
+    });
+    console.log(input_scale);
     res.status(200).json({ qrCode: qrImageUrl });
   } catch (err) {
     res.status(500).json({ error: "Failed to generate QR code" });

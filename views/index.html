@@ -12,7 +12,6 @@
       <ul>
         <li><a href="/">Generate</a></li>
         <li><a href="/decode">Decode</a></li>
-        <li>Settings</li>
       </ul>
     </div>
 
@@ -25,12 +24,25 @@
         architecto ut.
       </p>
       <form id="generate">
-        <input type="text" id="textInput" />
-        <button type="submit">Generate</button>
+        <div class="form">
+          <input class="input" type="text" id="textInput" />
+          <span class="input-border"></span>
+        </div>
+        <button class="btn" type="submit">Generate</button>
       </form>
       <p id="message" style="margin-top: 20px"></p>
       <img src="" id="result" />
       <p>Advanced Settings</p>
+      <div class="slidecontainer">
+        <input
+          type="range"
+          min="1"
+          max="100"
+          value="50"
+          class="slider"
+          id="slider"
+        />
+      </div>
     </div>
 
     <script src="script.js"></script>
