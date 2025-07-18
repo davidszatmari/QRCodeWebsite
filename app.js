@@ -43,7 +43,11 @@ app.post("/generate", async (req, res) => {
       margin: 1,
       scale: input_scale, // default 4
       errorCorrectionLevel: input_errorCorrection, // default M
-      version: input_version, // default 1
+      version: input_version, // default null
+      //color: {
+      //  dark: "#010599FF",
+      //  light: "#FFBF60FF",
+      //},
     });
     console.log(text, input_scale, input_errorCorrection, input_version);
     res.status(200).json({ qrCode: qrImageUrl });

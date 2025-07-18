@@ -20,15 +20,24 @@ document
         input_version: capacityVersion,
       }),
     })
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          return response.json().then((err) => {
+            throw new Error(err.error || "Unknown error");
+          });
+        }
+        return response.json();
+      })
       .then((data) => {
         console.log("Success:", data);
         document.getElementById("result").src = data.qrCode;
+        document.getElementById("message").textContent = "";
       })
       .catch((error) => {
         console.error("Error:", error);
         document.getElementById("message").textContent =
           "Error: " + error.message;
+        document.getElementById("result").src = "";
       });
   });
 

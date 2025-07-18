@@ -112,6 +112,10 @@ input:focus ~ .input-border {
   transition: 100ms;
 }
 
+#result {
+  margin-bottom: 20px;
+}
+
 .file-upload-form {
   width: fit-content;
   height: fit-content;
@@ -180,7 +184,19 @@ input:focus ~ .input-border {
   font-weight: bold;
 }
 
+.slider-text {
+  position: absolute;
+  bottom: 10px; /* Adjust this based on how far you want the value from the slider */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 16px;
+  font-weight: bold;
+}
+
 .advanced {
   display: flex;
   justify-content: space-around;
+  margin-top: 70px;
+  flex-direction: column;
+  gap: 60px;
 }
