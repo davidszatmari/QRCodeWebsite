@@ -6,6 +6,7 @@ document
     const inputText = document.getElementById("textInput").value;
     const slider = document.getElementById("slider").value;
     const level = document.getElementById("correc_level").value;
+    const capacityVersion = document.getElementById("versionInput").value;
 
     fetch("http://localhost:3000/generate", {
       method: "POST",
@@ -16,6 +17,7 @@ document
         text: inputText,
         input_scale: slider,
         input_errorCorrection: level,
+        input_version: capacityVersion,
       }),
     })
       .then((response) => response.json())
@@ -45,3 +47,6 @@ console.log(slider.value);
 
 const level = document.getElementById("correc_level");
 console.log(level.value);
+
+const version = document.getElementById("versionInput");
+console.log(version.value);
