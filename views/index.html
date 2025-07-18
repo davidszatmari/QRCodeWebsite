@@ -32,8 +32,8 @@
       </form>
       <p id="message" style="margin-top: 20px; color: red"></p>
       <img src="" id="result" />
-      <p>Advanced Settings</p>
-      <div class="advanced">
+      <p class="advanced-text" onclick="toggleDiv()">Advanced Settings ▼</p>
+      <div class="advanced hidden" id="advanced">
         <div class="slidecontainer">
           <input
             type="range"
@@ -69,5 +69,6 @@
     </div>
 
     <script src="script.js"></script>
+    <script src="toggle.js"></script>
   </body>
 </html>

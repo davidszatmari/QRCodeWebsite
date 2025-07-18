@@ -54,6 +54,7 @@ a:hover {
   --input-hovered-color: #4985e01f;
   position: relative;
   width: var(--width-of-input);
+  margin-top: 30px;
 }
 .input {
   color: #fff;
@@ -85,7 +86,7 @@ input:focus ~ .input-border {
 }
 
 .btn {
-  padding: 17px 40px;
+  padding: 16px 40px;
   border-radius: 50px;
   cursor: pointer;
   border: 0;
@@ -97,6 +98,12 @@ input:focus ~ .input-border {
   transition: all 0.5s ease;
   margin-bottom: 20px;
   margin-top: 20px;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
 }
 
 .btn:hover {
@@ -199,4 +206,26 @@ input:focus ~ .input-border {
   margin-top: 70px;
   flex-direction: column;
   gap: 60px;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.advanced-text {
+  cursor: pointer;
+  color: #5891ff;
+  font-weight: bold;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
 }
