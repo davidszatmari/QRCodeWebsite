@@ -17,21 +17,19 @@
 
     <div class="main-content">
       <h1>Generate QR Code</h1>
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci ut
-        sint, in accusantium distinctio, provident quas magni earum incidunt
-        pariatur voluptas? Libero rerum nostrum itaque inventore unde, nobis
-        architecto ut.
-      </p>
-      <form id="generate">
-        <div class="form">
-          <input class="input" type="text" id="textInput" />
-          <span class="input-border"></span>
+      <div class="first-section">
+        <form id="generate">
+          <div class="form">
+            <input class="input" type="text" id="textInput" />
+            <span class="input-border"></span>
+          </div>
+          <button class="btn" type="submit">Generate</button>
+        </form>
+        <div id="result-content" class="result-content hidden">
+          <p id="message" class="message"></p>
+          <img src="" id="result" />
         </div>
-        <button class="btn" type="submit">Generate</button>
-      </form>
-      <p id="message" style="margin-top: 20px; color: red"></p>
-      <img src="" id="result" />
+      </div>
       <p class="advanced-text" onclick="toggleDiv()">Advanced Settings ▼</p>
       <div class="advanced hidden" id="advanced">
         <div class="slidecontainer">

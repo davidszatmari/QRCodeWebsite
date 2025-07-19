@@ -32,12 +32,18 @@ document
         console.log("Success:", data);
         document.getElementById("result").src = data.qrCode;
         document.getElementById("message").textContent = "";
+        document.getElementById("result").classList.remove("hidden");
+        document.getElementById("result-content").classList.remove("hidden");
+        document.getElementById("message").classList.add("hidden");
       })
       .catch((error) => {
         console.error("Error:", error);
         document.getElementById("message").textContent =
           "Error: " + error.message;
         document.getElementById("result").src = "";
+        document.getElementById("message").classList.remove("hidden");
+        document.getElementById("result-content").classList.remove("hidden");
+        document.getElementById("result").classList.add("hidden");
       });
   });
 
