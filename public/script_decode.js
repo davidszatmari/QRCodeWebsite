@@ -1,6 +1,6 @@
 const form = document.getElementById("decodeForm");
 const message = document.getElementById("message");
-const result = document.getElementById("result");
+const result = document.getElementById("result-text");
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -18,7 +18,7 @@ form.addEventListener("submit", async (e) => {
 
     if (response.ok) {
       message.textContent = "QR code decoded successfully!";
-      result.textContent = `Result: ${data.decodedText}`;
+      result.textContent = data.decodedText;
     } else {
       message.textContent =
         "Error: " + (data.error || "Failed to decode QR code.");

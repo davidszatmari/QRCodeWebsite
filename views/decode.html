@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="side-panel">
@@ -17,12 +21,19 @@
 
     <div class="main-content">
       <h1>Decode QR Code</h1>
-      <form id="decodeForm">
-        <input type="file" name="qrImage" accept="image/*" required /> <br />
-        <button class="btn" type="submit">Decode</button>
-      </form>
-      <p id="message" style="margin-top: 20px"></p>
-      <p id="result"></p>
+      <div class="first-section">
+        <form id="decodeForm">
+          <div id="decode">
+            <input type="file" name="qrImage" accept="image/*" /> <br />
+            <button class="btn" type="submit">Decode</button>
+          </div>
+        </form>
+        <div class="result-content-decode">
+          <p id="message" class="message"></p>
+          <p class="bold-text">Result:</p>
+          <p id="result-text"></p>
+        </div>
+      </div>
     </div>
 
     <script src="script_decode.js"></script>
