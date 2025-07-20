@@ -43,5 +43,5 @@ npm install
 ### Running the App
 
 ```bash
-node app.js
+npm start
 ```
