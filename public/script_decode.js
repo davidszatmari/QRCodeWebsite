@@ -9,7 +9,7 @@ form.addEventListener("submit", async (e) => {
   message.textContent = "Decoding...";
 
   try {
-    const response = await fetch("http://localhost:3000/decodeqr", {
+    const response = await fetch("http://localhost:3000/decode", {
       method: "POST",
       body: formData,
     });

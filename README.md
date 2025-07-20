@@ -71,7 +71,7 @@ http POST http://localhost:3000/generate text=test input_scale=5 input_errorCorr
 ### Decode QR Code
 
 **Endpoint:**
-`POST /decodeqr`
+`POST /decode`
 
 **Request:**  
 Send a multipart/form-data request with a file field named `qrImage`.
@@ -79,7 +79,7 @@ Send a multipart/form-data request with a file field named `qrImage`.
 **Example using HTTPie:**
 
 ```bash
- http -f POST http://localhost:3000/decodeqr qrImage@download.png
+ http -f POST http://localhost:3000/decode qrImage@download.png
 ```
 
 **Response (JSON):**

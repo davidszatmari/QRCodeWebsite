@@ -20,7 +20,7 @@ app.get("/", (req, res) => {
   res.render("index.html", { file: "views/index.html" });
 });
 
-app.get("/decode", (req, res) => {
+app.get("/decodeqr", (req, res) => {
   res.render("decode.html", { file: "views/decode.html" });
 });
 
@@ -49,7 +49,13 @@ app.post("/generate", async (req, res) => {
       //  light: "#FFBF60FF",
       //},
     });
-    console.log(text, input_scale, input_errorCorrection, input_version);
+    //console.log(
+    //  "Generate:",
+    //  text,
+    //  input_scale,
+    //  input_errorCorrection,
+    //  input_version
+    // );
     res.status(200).json({ qrCode: qrImageUrl });
   } catch (err) {
     res.status(500).json({ error: "Failed to generate QR code" });
@@ -57,7 +63,7 @@ app.post("/generate", async (req, res) => {
 });
 
 // Decode QR Code
-app.post("/decodeqr", upload.single("qrImage"), async (req, res) => {
+app.post("/decode", upload.single("qrImage"), async (req, res) => {
   if (!req.file) {
     return res.status(400).json({ error: "Image file is required" });
   }
@@ -65,18 +71,18 @@ app.post("/decodeqr", upload.single("qrImage"), async (req, res) => {
   try {
     const imageBuffer = fs.readFileSync(req.file.path);
 
-    // Convert image to raw pixel data
     const { data, info } = await sharp(imageBuffer)
       .ensureAlpha()
       .raw()
       .toBuffer({ resolveWithObject: true });
 
     const qrCode = jsQR(data, info.width, info.height);
+    //console.log(qrCode); //qrcode data
 
     if (!qrCode) {
       return res.status(400).json({ error: "Unable to decode QR code" });
     }
-
+    //console.log("Decoded:", qrCode.data);
     res.json({ decodedText: qrCode.data });
   } catch (err) {
     console.error("Error decoding QR:", err);
