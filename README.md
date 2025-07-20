@@ -45,3 +45,47 @@ npm install
 ```bash
 npm start
 ```
+
+## API Usage
+
+### Generate QR Code
+
+**Endpoint:**  
+`POST /generate`
+
+**Request Body (JSON):**
+
+| Parameter                          | Type   | Description                                    |
+| ---------------------------------- | ------ | ---------------------------------------------- |
+| `text` (required)                  | string | The text or URL to encode in the QR code.      |
+| `input_scale` (optional)           | number | Scale/size of the QR code image.               |
+| `input_errorCorrection` (optional) | string | Error correction level: `L`, `M`, `Q`, or `H`. |
+| `input_version` (optional)         | number | QR code version (1–40).                        |
+
+**Example using HTTPie:**
+
+```bash
+http POST http://localhost:3000/generate text=test input_scale=5 input_errorCorrection=H input_version=8
+```
+
+### Decode QR Code
+
+**Endpoint:**
+`POST /decodeqr`
+
+**Request:**  
+Send a multipart/form-data request with a file field named `qrImage`.
+
+**Example using HTTPie:**
+
+```bash
+ http -f POST http://localhost:3000/decodeqr qrImage@download.png
+```
+
+**Response (JSON):**
+
+```json
+{
+  "decodedText": "test"
+}
+```
